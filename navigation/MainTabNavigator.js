@@ -14,9 +14,9 @@ const config = Platform.select({
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+export const HomeStack = createStackNavigator(
   {
-    Home: SignUp,
+    Home: HomeScreen,
   },
   config
 );

@@ -92,8 +92,9 @@ class SignUp extends React.Component {
                 </View>
 
                 <TouchableOpacity style={styles.btnLogin }>
-                        <Text style={styles.text}>Continue</Text>
+                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
+                    <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signup</Text>
             </ImageBackground>
         )
     }
@@ -137,10 +138,11 @@ const styles = {
         padding: 5
     },
     tipText: {
-        color: 'white',
+        color: '#fcbb16',
         fontSize: 15,
         marginTop: 5,
-        padding: 10
+        padding: 10,
+        textDecorationLine: 'underline'
     },
     input: {
         width: WIDTH - 55,

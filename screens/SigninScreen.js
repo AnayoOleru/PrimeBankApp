@@ -44,7 +44,7 @@ class SignIn extends React.Component {
             <ImageBackground style={styles.backgroundContainer}>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo} />
-                    <Text style={styles.logoText}>LOGIN </Text>
+                    <Text style={styles.logoText}>Login with your credentials </Text>
                 </View>
                 <View style={styles.inputContainer}>
                     <Ionicons name={'email-lock'} size={25} color={'white'} 
@@ -73,8 +73,9 @@ class SignIn extends React.Component {
                 </View>
 
                 <TouchableOpacity style={styles.btnLogin }>
-                        <Text style={styles.text}>Login</Text>
+                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
+                    <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
             </ImageBackground>
         )
     }
@@ -92,18 +93,24 @@ const styles = {
     },
     logoContainer: {
         alignItems: 'center',
-        marginBottom: 50
+        marginBottom: 30
     },
     logo: {
         width: 120,
-        height: 120 
+        height: 190 
     },
     logoText: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 20,
+        fontWeight: '500',
+    },
+    regText: {
+        color: '#fcbb16',
+        fontSize: 15,
         fontWeight: '500',
         marginTop: 10,
-        opacity: 0.5
+        padding: 10,
+        textDecorationLine: 'underline'
     },
     input: {
         width: WIDTH - 55,
