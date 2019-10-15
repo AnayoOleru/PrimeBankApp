@@ -7,15 +7,16 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SignIn from '../screens/SigninScreen';
+import SignUp from '../screens/SignUpScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+export const HomeStack = createStackNavigator(
   {
-    Home: SignIn,
+    Home: HomeScreen,
   },
   config
 );
