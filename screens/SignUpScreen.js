@@ -1,6 +1,7 @@
   
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions } from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView, } from 'react-native';
+import { Header, Left, Right, Icon } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
@@ -18,6 +19,12 @@ class SignUp extends React.Component {
             press: false
         }
     }
+
+    static navigationOptions = {
+        drawerIcon : ({tintColor}) => (
+            <Icon name="home" style={{fontSize:24,  color: tintColor}} />
+        )
+      };
 
     handleFirstNameInput = (name) => {
         this.setState({ name });
@@ -42,6 +49,7 @@ class SignUp extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={styles.backgroundContainer}>
+                <ScrollView>
                 <View style={styles.logoContainer}>
                     <Text style={styles.WelcomeText}>Welcome To Your One Customer Bank</Text>
                     <Text style={styles.introText}>Let's set up your account real quick!</Text>
@@ -95,6 +103,7 @@ class SignUp extends React.Component {
                         <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
                     <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signup</Text>
+                    </ScrollView>
             </ImageBackground>
         )
     }

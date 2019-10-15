@@ -14,6 +14,7 @@ const config = Platform.select({
   default: {},
 });
 
+
 export const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -22,7 +23,7 @@ export const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Transaction',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
