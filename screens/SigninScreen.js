@@ -1,10 +1,13 @@
   
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView } from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ActivityIndicator } from 'react-native';
 import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../components/Loader';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
+
 
 const { width: WIDTH } = Dimensions.get('window'); 
 class SignIn extends React.Component {
@@ -16,7 +19,8 @@ class SignIn extends React.Component {
             phoneNumber: '',
             password: '',
             showPass: true,
-            press: false
+            press: false,
+            loading: true
         }
     }
 
@@ -34,15 +38,22 @@ class SignIn extends React.Component {
 
     handlePasswordInput = (password) => {
         this.setState({ password });
-    }
+    };
 
-    
-
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({
+              loading: false
+            });
+          }, 3000);
+    };
     
     render() {
         const { navigate } = this.props.navigation;
         return (
+            <React.Fragment>
             <ImageBackground style={styles.backgroundContainer}>
+            <Loader loading={this.state.loading} />
                 <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo} />
@@ -80,6 +91,7 @@ class SignIn extends React.Component {
                     <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
                     </KeyboardAwareScrollView>
             </ImageBackground>
+            </React.Fragment>
         )
     }
 }
@@ -150,7 +162,14 @@ const styles = {
         color: 'white',
          fontSize: 16,
          textAlign: 'center'
-
+    },
+    loaderStyle: {
+        flex: 1,
+        position: 'relative',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        width: '100%',
+        height: '100%'
     }
 }
 
