@@ -36,23 +36,6 @@ class Transaction extends Component {
             <Icon name="home" style={{fontSize:24,  color: tintColor}} />
         )
       };
-//   static navigationOptions = {
-//     headerLeftContainerStyle: {
-//       paddingLeft: 24
-//     },
-//     headerRightContainerStyle: {
-//       paddingRight: 24
-//     },
-//     headerLeft: (
-//       <TouchableOpacity>Menu</TouchableOpacity>
-//     ),
-//     headerRight: (
-//       <TouchableOpacity>notification</TouchableOpacity>
-//     ),
-//     headerTitle: (
-//       <Block row middle><Text h4>Overview</Text></Block>
-//     )
-//   }
 
   render() {
     return (
