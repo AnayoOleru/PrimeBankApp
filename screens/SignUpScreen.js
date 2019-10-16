@@ -27,10 +27,17 @@ class SignUp extends React.Component {
     }
 
     static navigationOptions = {
-        drawerIcon : ({tintColor}) => (
-            <Icon name="home" style={{fontSize:24,  color: tintColor}} />
-        )
+        header: null
       };
+
+      static get options() {
+        return {
+          topBar: {
+            visible: false,
+            animate: false
+          }
+        };
+      }
 
     handleFirstNameInput = (name) => {
         this.setState({ name });
@@ -84,8 +91,8 @@ class SignUp extends React.Component {
                 <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Text style={styles.WelcomeText}>Welcome To Your One Customer Bank</Text>
-                    <Text style={styles.introText}>Let's set up your account real quick!</Text>
                     <Image source={logo} style={styles.logo} />
+                    <Text style={styles.introText}>Let's set up your account real quick!</Text>
                 </View>
                 <View style={styles.inputContainer}>
                     <FontAwesome name={'bank'} size={25} color={'white'} 
@@ -136,8 +143,8 @@ class SignUp extends React.Component {
                 </View>
                 
 
-                <TouchableOpacity style={styles.btnLogin }>
-                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
+                <TouchableOpacity style={styles.btnLogin} onPress={() => this.props.navigation.navigate('Main')}>
+                        <Text style={styles.text}>Continue</Text>
                     </TouchableOpacity>
                     <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signin</Text>
                     </KeyboardAwareScrollView>
@@ -154,7 +161,8 @@ const styles = {
         alignItems: 'center',
         width: null,
         height: null,
-        backgroundColor: '#062b50'
+        backgroundColor: '#062b50',
+        marginTop: 40
     },
     logoContainer: {
         alignItems: 'center',
@@ -174,13 +182,13 @@ const styles = {
     WelcomeText: {
         color: 'white',
         fontSize: 25,
-        marginTop: 5,
+        marginTop: 50,
         padding: 5
     },
     introText: {
         color: 'white',
         fontSize: 15,
-        marginTop: 5,
+        marginTop: 10,
         padding: 5
     },
     tipText: {

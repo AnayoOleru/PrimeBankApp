@@ -47,6 +47,11 @@ class SignIn extends React.Component {
             });
           }, 3000);
     };
+
+
+    static navigationOptions = {
+        header: null
+      };
     
     render() {
         const { navigate } = this.props.navigation;
@@ -85,8 +90,8 @@ class SignIn extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.btnLogin }>
-                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
+                <TouchableOpacity style={styles.btnLogin } onPress={() => this.props.navigation.navigate('Main')}>
+                        <Text style={styles.text}>Continue</Text>
                     </TouchableOpacity>
                     <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
                     </KeyboardAwareScrollView>
@@ -104,7 +109,8 @@ const styles = {
         alignItems: 'center',
         width: null,
         height: null,
-        backgroundColor: '#062b50'
+        backgroundColor: '#062b50',
+        marginTop: 40
     },
     logoContainer: {
         alignItems: 'center',
