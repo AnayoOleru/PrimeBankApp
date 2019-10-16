@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import { Header, Left, Right, Icon } from 'native-base';
+import { Header, Left, Right, Icon, Body, Title, Button } from 'native-base';
 
 import { Block, Card, Text, IconImage, Label } from '../components';
 import * as theme from '../constants/theme';
@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
+  },
+  headerText: {
+    flex:4,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 
@@ -53,9 +58,16 @@ class Transaction extends Component {
     return (
       <SafeAreaView style={styles.overview}>
           <Header>
-              <Left>
+              <Left style={{ flex: 1 }}>
+                  <Button transparent>
                   <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
+                  </Button>
               </Left>
+              <Body style={styles.headerText}>
+                <Title>TRANSACTIONS</Title>
+            </Body>
+            <Right  style={{ flex: 1 }}>
+            </Right>
           </Header>
         <ScrollView contentContainerStyle={{ paddingVertical: 25 }}>
             <Card row middle style={styles.margin}>

@@ -2,7 +2,7 @@
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView, } from 'react-native';
 import { Header, Left, Right, Icon } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -56,7 +56,7 @@ class SignUp extends React.Component {
                     <Image source={logo} style={styles.logo} />
                 </View>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'email-lock'} size={25} color={'white'} 
+                    <FontAwesome name={'bank'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -67,7 +67,7 @@ class SignUp extends React.Component {
                 </View>
                 <Text style={styles.tipText}>Quick Tip: Dial *565*0# on your registered mobile number to get your BVN.</Text>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                    <Ionicons name={'ios-person'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -78,7 +78,7 @@ class SignUp extends React.Component {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                    <Ionicons name={'ios-person'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -89,7 +89,7 @@ class SignUp extends React.Component {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                <MaterialIcons name={'date-range'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -158,7 +158,7 @@ const styles = {
         height: 45,
         borderRadius: 45,
         fontSize: 16,
-        paddingLeft: 60,
+        paddingLeft: 70,
         backgroundColor: 'rgba(0, 0, 0, 0.35)',
         color: 'white',
         marginHoriontal: 25

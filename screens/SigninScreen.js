@@ -1,7 +1,7 @@
   
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -48,7 +48,7 @@ class SignIn extends React.Component {
                     <Text style={styles.logoText}>Login with your credentials </Text>
                 </View>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'email-lock'} size={25} color={'white'} 
+                    <Entypo name={'email'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -58,7 +58,7 @@ class SignIn extends React.Component {
                     />
                 </View>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                    <MaterialCommunityIcons name={'textbox-password'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -69,7 +69,7 @@ class SignIn extends React.Component {
                     />
 
                     <TouchableOpacity style={styles.btnEye }>
-                        <Ionicons name={this.state.press === false ? 'arrow-with-circle-right' : null} size={22} color={'white'} />
+                        <AntDesign name={'eye'} size={22} color={'white'} />
                     </TouchableOpacity>
                 </View>
 
@@ -119,7 +119,7 @@ const styles = {
         height: 45,
         borderRadius: 45,
         fontSize: 16,
-        paddingLeft: 60,
+        paddingLeft: 70,
         backgroundColor: 'rgba(0, 0, 0, 0.35)',
         color: 'white',
         marginHoriontal: 25
