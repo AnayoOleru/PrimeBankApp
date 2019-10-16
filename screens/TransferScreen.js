@@ -5,6 +5,8 @@ import { Header, Left, Right, Icon, Text as TabText, Body, Button, Title } from 
 import { 
     Ionicons, Entypo, MaterialCommunityIcons, FontAwesome, MaterialIcons
 } from '@expo/vector-icons/';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 // import personIcon from '../assets/icons/_ionicons_svg_ios-person.svg';
@@ -19,7 +21,9 @@ class Transfer extends React.Component {
             phoneNumber: '',
             password: '',
             showPass: true,
-            press: false
+            press: false,
+            isVisible: false,
+            chosenDate: '',
         }
     }
 
@@ -45,7 +49,24 @@ class Transfer extends React.Component {
         this.setState({ password });
     }
 
-    
+    handleDatePicker = (datetime) => {
+        this.setState({
+            isVisible: false,
+            chosenDate: moment(datetime).format('MMMM, Do YYYY HH:mm')
+        })
+    };
+
+    hideDateTimePicker = () => {
+        this.setState({
+            isVisible: true
+        })
+    };
+
+    showPicker = () => {
+        this.setState({
+             isVisible: true
+        })
+    }
 
     
     render() {
@@ -108,15 +129,21 @@ class Transfer extends React.Component {
                 </View>
 
                 <Text ligth caption center style={styles.tranText}>Transfer Date:</Text>
-                <View style={styles.inputContainer}>
+                <TouchableOpacity style={styles.inputContainer} onPress={this.showPicker}>
                     <MaterialIcons name={'date-range'} size={25} color={'white'} 
                     style={styles.inputIcon} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder={'Date of Birth'}
-                        placeholderTextColor={'white'}
-                        underlineColorAndroid='transparent'
-                    />
+                    <Text style={styles.dateText}>Pick a date and time</Text>
+                    <Text style={styles.dateText}>{this.state.chosenDate}</Text>
+                </TouchableOpacity>
+
+                <View style={styles.inputContainer}>
+                    <DateTimePicker
+                        isVisible={this.state.isVisible}
+                        onConfirm={this.handleDatePicker}
+                        onCancel={this. hideDateTimePicker}
+                        mode={'datetime'}
+                        is24Hours={false}
+                        />
                 </View>
 
                 <TouchableOpacity style={styles.btnLogin }>
@@ -188,6 +215,12 @@ const styles = {
         top: 10,
         left: 36 
     },
+    dateText: {
+        color: 'white',
+        fontSize: 15,
+        marginTop: 14,
+        paddingLeft: 70
+    },
     inputContainer: {
         marginTop: 5
     },
@@ -220,7 +253,13 @@ const styles = {
           fontSize: 20,
           marginTop: 5,
           padding: 10,
-      }
+      },
+      dateText: {
+        color: 'white',
+        fontSize: 15,
+        marginTop: 14,
+        paddingLeft: 70
+    }
 }
 
  
