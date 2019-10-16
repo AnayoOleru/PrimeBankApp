@@ -117,6 +117,7 @@ class Transaction extends Component {
             </Block>
           </Card>
 
+        <TouchableOpacity>
           <Card
             title="TRANSACTION INFORMATION"
             style={[styles.margin, { marginTop: 18 }]}
@@ -164,6 +165,7 @@ class Transaction extends Component {
               </TouchableOpacity>
             </Block>
           </Card>
+          </TouchableOpacity>
 
 
           <Card
