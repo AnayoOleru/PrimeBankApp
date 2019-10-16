@@ -9,6 +9,8 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
+// import KeyboardShift from '../components/KeyboardShift';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // import personIcon from '../assets/icons/_ionicons_svg_ios-person.svg';
 
 const { width: WIDTH } = Dimensions.get('window'); 
@@ -72,7 +74,8 @@ class Transfer extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <React.Fragment>
+            
+             <React.Fragment> 
         <View>
         <Header>
             <Left>
@@ -88,7 +91,7 @@ class Transfer extends React.Component {
             </Header>
             </View>
             <ImageBackground style={styles.backgroundContainer}>
-                <ScrollView>
+            <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo} />
                 </View>
@@ -149,7 +152,7 @@ class Transfer extends React.Component {
                 <TouchableOpacity style={styles.btnLogin }>
                         <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>TRANSFER</Text>
                     </TouchableOpacity>
-                    </ScrollView>
+                    </KeyboardAwareScrollView>
             </ImageBackground>
         </React.Fragment>
         );

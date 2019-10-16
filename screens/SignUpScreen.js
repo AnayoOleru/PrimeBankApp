@@ -5,6 +5,7 @@ import { Header, Left, Right, Icon } from 'native-base';
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -71,7 +72,7 @@ class SignUp extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={styles.backgroundContainer}>
-                <ScrollView>
+                <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Text style={styles.WelcomeText}>Welcome To Your One Customer Bank</Text>
                     <Text style={styles.introText}>Let's set up your account real quick!</Text>
@@ -130,7 +131,7 @@ class SignUp extends React.Component {
                         <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
                     <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signin</Text>
-                    </ScrollView>
+                    </KeyboardAwareScrollView>
             </ImageBackground>
         )
     }

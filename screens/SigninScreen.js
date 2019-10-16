@@ -2,6 +2,7 @@
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView } from 'react-native';
 import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -42,7 +43,7 @@ class SignIn extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={styles.backgroundContainer}>
-                <ScrollView>
+                <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo} />
                     <Text style={styles.logoText}>Login with your credentials </Text>
@@ -77,7 +78,7 @@ class SignIn extends React.Component {
                         <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
                     <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
-                    </ScrollView>
+                    </KeyboardAwareScrollView>
             </ImageBackground>
         )
     }
