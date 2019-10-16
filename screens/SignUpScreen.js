@@ -2,7 +2,10 @@
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView, } from 'react-native';
 import { Header, Left, Right, Icon } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -16,7 +19,9 @@ class SignUp extends React.Component {
             phoneNumber: '',
             password: '',
             showPass: true,
-            press: false
+            press: false,
+            isVisible: false,
+            chosenDate: ''
         }
     }
 
@@ -42,21 +47,39 @@ class SignUp extends React.Component {
         this.setState({ password });
     }
 
-    
+    handleDatePicker = (date) => {
+        this.setState({
+            isVisible: false,
+            chosenDate: moment(date).format('MMMM, Do YYYY')
+        })
+    };
+
+    hideDateTimePicker = () => {
+        this.setState({
+            isVisible: true
+        })
+    };
+
+    showPicker = () => {
+        this.setState({
+             isVisible: true
+        })
+    }
 
     
     render() {
+
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={styles.backgroundContainer}>
-                <ScrollView>
+                <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Text style={styles.WelcomeText}>Welcome To Your One Customer Bank</Text>
                     <Text style={styles.introText}>Let's set up your account real quick!</Text>
                     <Image source={logo} style={styles.logo} />
                 </View>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'email-lock'} size={25} color={'white'} 
+                    <FontAwesome name={'bank'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -67,7 +90,7 @@ class SignUp extends React.Component {
                 </View>
                 <Text style={styles.tipText}>Quick Tip: Dial *565*0# on your registered mobile number to get your BVN.</Text>
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                    <Ionicons name={'ios-person'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -78,7 +101,7 @@ class SignUp extends React.Component {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                    <Ionicons name={'ios-person'} size={25} color={'white'} 
                     style={styles.inputIcon} />
                     <TextInput
                         style={styles.input}
@@ -88,22 +111,27 @@ class SignUp extends React.Component {
                     />
                 </View>
 
-                <View style={styles.inputContainer}>
-                    <Ionicons name={'folder-lock-open'} size={25} color={'white'} 
+                <TouchableOpacity style={styles.inputContainer} onPress={this.showPicker}>
+                <MaterialIcons name={'date-range'} size={25} color={'white'} 
                     style={styles.inputIcon} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder={'Date of Birth'}
-                        placeholderTextColor={'white'}
-                        underlineColorAndroid='transparent'
-                    />
+                    <Text style={styles.dateText}>Date of birth</Text>
+                    <Text style={styles.dateText}>{this.state.chosenDate}</Text>
+                </TouchableOpacity>
+
+                <View style={styles.inputContainer}>
+                    <DateTimePicker
+                        isVisible={this.state.isVisible}
+                        onConfirm={this.handleDatePicker}
+                        onCancel={this. hideDateTimePicker}
+                        />
                 </View>
+                
 
                 <TouchableOpacity style={styles.btnLogin }>
                         <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
                     </TouchableOpacity>
-                    <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signup</Text>
-                    </ScrollView>
+                    <Text style={styles.tipText} onPress={() => this.props.navigation.navigate('SignIn')} >Already have an account? Signin</Text>
+                    </KeyboardAwareScrollView>
             </ImageBackground>
         )
     }
@@ -158,10 +186,20 @@ const styles = {
         height: 45,
         borderRadius: 45,
         fontSize: 16,
-        paddingLeft: 60,
+        paddingLeft: 70,
         backgroundColor: 'rgba(0, 0, 0, 0.35)',
         color: 'white',
         marginHoriontal: 25
+    },
+    dateText: {
+        color: 'white',
+        fontSize: 15,
+        marginTop: 14,
+        paddingLeft: 70
+    },
+    dateContainer: {
+        borderColor: 'black',
+        borderWidth: 1,
     },
     inputIcon: {
         position: 'absolute',

@@ -1,13 +1,14 @@
   
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions, ScrollView } from 'react-native';
+import { Header, Left, Right, Icon, Text as TabText, Body, Button, Title } from 'native-base';
 import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
 const { width: WIDTH } = Dimensions.get('window'); 
-class SignIn extends React.Component {
+class Logout extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -36,12 +37,31 @@ class SignIn extends React.Component {
         this.setState({ password });
     }
 
+    static navigationOptions = {
+        drawerIcon : ({tintColor}) => (
+            <MaterialCommunityIcons name="logout" style={{fontSize:24,  color: tintColor}} />
+        )
+      };
+
     
 
     
     render() {
         const { navigate } = this.props.navigation;
         return (
+            <React.Fragment>
+            <Header>
+            <Left style={{ flex: 1 }}>
+               <Button transparent>
+                  <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
+                    </Button>
+                </Left>
+                <Body style={styles.headerText}>
+                  <Title>LOGOUT</Title>
+              </Body>
+              <Right  style={{ flex: 1 }}>
+              </Right>
+            </Header>
             <ImageBackground style={styles.backgroundContainer}>
                 <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
@@ -80,6 +100,7 @@ class SignIn extends React.Component {
                     <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
                     </KeyboardAwareScrollView>
             </ImageBackground>
+            </React.Fragment>
         )
     }
 }
@@ -151,8 +172,13 @@ const styles = {
          fontSize: 16,
          textAlign: 'center'
 
-    }
+    },
+    headerText: {
+        flex:4,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }
 }
 
  
-export default SignIn;
+export default Logout;

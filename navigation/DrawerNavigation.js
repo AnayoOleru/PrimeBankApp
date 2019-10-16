@@ -1,10 +1,14 @@
 import React from 'react';
 import { Dimensions, SafeAreaView, View, Image, ScrollView } from 'react-native';
 import { createDrawerNavigator, navigationOptions, DrawerItems } from 'react-navigation';
-import HomeScreen from '../screens/HomeScreen';
 import Transaction from '../screens/TransactionScreen';
-import SignUp from '../screens/SignUpScreen';
-// import { Image } from 'native-base';
+import Transfer from '../screens/TransferScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import Logout from '../screens/Logout';
+import PayBills from '../screens/PayBills';
+import ATMlocator from '../screens/ATMlocator';
+import Support from '../screens/Support';
+import AlertNotification from '../screens/AlertandNotification';
 
 import sunbank from '../assets/images/sunbank.png';
 
@@ -24,7 +28,13 @@ const CustomeDrawerComponent = (props) => (
 export const TransactionStackNavigator = createDrawerNavigator(
     {
         TRANSACTIONS: Transaction,
-        TRANSFER: SignUp
+        TRANSFER: Transfer,
+        SETTINGS: SettingsScreen,
+        LOGOUT: Logout,
+        PAYBILLS: PayBills,
+        ATMLOCATOR: ATMlocator,
+        SUPPORT: Support,
+        ALERTSNOTIFICATION: AlertNotification 
     },
     {
         contentComponent: CustomeDrawerComponent,

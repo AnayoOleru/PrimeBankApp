@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import { Header, Left, Right, Icon } from 'native-base';
+import { Header, Left, Right, Icon, Body, Title, Button } from 'native-base';
 
 import { Block, Card, Text, IconImage, Label } from '../components';
 import * as theme from '../constants/theme';
@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
+  },
+  headerText: {
+    flex:4,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 
@@ -31,32 +36,23 @@ class Transaction extends Component {
             <Icon name="home" style={{fontSize:24,  color: tintColor}} />
         )
       };
-//   static navigationOptions = {
-//     headerLeftContainerStyle: {
-//       paddingLeft: 24
-//     },
-//     headerRightContainerStyle: {
-//       paddingRight: 24
-//     },
-//     headerLeft: (
-//       <TouchableOpacity>Menu</TouchableOpacity>
-//     ),
-//     headerRight: (
-//       <TouchableOpacity>notification</TouchableOpacity>
-//     ),
-//     headerTitle: (
-//       <Block row middle><Text h4>Overview</Text></Block>
-//     )
-//   }
 
   render() {
     return (
-      <SafeAreaView style={styles.overview}>
-          <Header>
-              <Left>
-                  <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
+        <React.Fragment>
+        <Header>
+          <Left style={{ flex: 1 }}>
+             <Button transparent>
+                <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
+                  </Button>
               </Left>
+              <Body style={styles.headerText}>
+                <Title>TRANSACTIONS</Title>
+            </Body>
+            <Right  style={{ flex: 1 }}>
+            </Right>
           </Header>
+      <SafeAreaView style={styles.overview}>
         <ScrollView contentContainerStyle={{ paddingVertical: 25 }}>
             <Card row middle style={styles.margin}>
             <Block flex={1.2} center middle style={{ marginRight: 0 }}>
@@ -196,6 +192,7 @@ class Transaction extends Component {
           </Card>
         </ScrollView>
       </SafeAreaView>
+      </React.Fragment>
     )
   }
 }
