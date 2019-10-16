@@ -14,10 +14,6 @@ export default function LinksScreen() {
   );
 }
 
-LinksScreen.navigationOptions = {
-  title: 'Links',
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -9,6 +9,7 @@ import PayBills from '../screens/PayBills';
 import ATMlocator from '../screens/ATMlocator';
 import Support from '../screens/Support';
 import AlertNotification from '../screens/AlertandNotification';
+import TransactionInformation from '../screens/TransactionInformation';
 
 import sunbank from '../assets/images/sunbank.png';
 
@@ -29,12 +30,13 @@ export const TransactionStackNavigator = createDrawerNavigator(
     {
         TRANSACTIONS: Transaction,
         TRANSFER: Transfer,
-        SETTINGS: SettingsScreen,
-        LOGOUT: Logout,
         PAYBILLS: PayBills,
         ATMLOCATOR: ATMlocator,
+        TRANSACTIONINFO: TransactionInformation,
         SUPPORT: Support,
-        ALERTSNOTIFICATION: AlertNotification 
+        ALERTSNOTIFICATION: AlertNotification,
+        SETTINGS: SettingsScreen,
+        LOGOUT: Logout,
     },
     {
         contentComponent: CustomeDrawerComponent,

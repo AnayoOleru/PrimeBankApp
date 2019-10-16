@@ -137,7 +137,7 @@ class Transfer extends React.Component {
               {/* <ion-icon name="person"></ion-icon> */}
               <TextInput
                 style={styles.input}
-                placeholder={"Select Account"}
+                placeholder={"Add Account"}
                 placeholderTextColor={"white"}
                 underlineColorAndroid="transparent"
               />
@@ -154,7 +154,7 @@ class Transfer extends React.Component {
               />
               <TextInput
                 style={styles.input}
-                placeholder={"Select Account"}
+                placeholder={"Add Account"}
                 placeholderTextColor={"white"}
                 underlineColorAndroid="transparent"
               />
