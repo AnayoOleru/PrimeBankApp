@@ -5,7 +5,8 @@ import { Header, Left, Right, Icon } from 'native-base';
 import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Loader from '../components/Loader';
 import bgImage from '../assets/images/background2.png';
 import logo from '../assets/images/sunbank.png';
 
@@ -64,14 +65,22 @@ class SignUp extends React.Component {
         this.setState({
              isVisible: true
         })
-    }
+    };
 
-    
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({
+              loading: false
+            });
+          }, 3000);
+    };
+
     render() {
 
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={styles.backgroundContainer}>
+              <Loader loading={this.state.loading} />
                 <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Text style={styles.WelcomeText}>Welcome To Your One Customer Bank</Text>
