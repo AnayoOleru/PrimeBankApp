@@ -66,7 +66,7 @@ class Logout extends React.Component {
                 <KeyboardAwareScrollView>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logo} />
-                    <Text style={styles.logoText}>Login with your credentials </Text>
+                    <Text style={styles.logoText}>Logout</Text>
                 </View>
                 <View style={styles.inputContainer}>
                     <Entypo name={'email'} size={25} color={'white'} 
@@ -78,26 +78,10 @@ class Logout extends React.Component {
                         underlineColorAndroid='transparent'
                     />
                 </View>
-                <View style={styles.inputContainer}>
-                    <MaterialCommunityIcons name={'textbox-password'} size={25} color={'white'} 
-                    style={styles.inputIcon} />
-                    <TextInput
-                        style={styles.input}
-                        placeholder={'Password'}
-                        secureTextEntry={this.state.showPass}
-                        placeholderTextColor={'white'}
-                        underlineColorAndroid='transparent'
-                    />
-
-                    <TouchableOpacity style={styles.btnEye }>
-                        <AntDesign name={'eye'} size={22} color={'white'} />
-                    </TouchableOpacity>
-                </View>
 
                 <TouchableOpacity style={styles.btnLogin }>
-                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('Main')}>Continue</Text>
+                        <Text style={styles.text} onPress={() => this.props.navigation.navigate('SignIn')}>Logout</Text>
                     </TouchableOpacity>
-                    <Text style={styles.regText} onPress={() => this.props.navigation.navigate('SignUp')} >Don't have a SunBank account? Register here. </Text>
                     </KeyboardAwareScrollView>
             </ImageBackground>
             </React.Fragment>
