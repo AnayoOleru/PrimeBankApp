@@ -56,11 +56,11 @@ class Transaction extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.overview}>
-          <Header>
-              <Left style={{ flex: 1 }}>
-                  <Button transparent>
-                  <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
+        <React.Fragment>
+        <Header>
+          <Left style={{ flex: 1 }}>
+             <Button transparent>
+                <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
                   </Button>
               </Left>
               <Body style={styles.headerText}>
@@ -69,6 +69,7 @@ class Transaction extends Component {
             <Right  style={{ flex: 1 }}>
             </Right>
           </Header>
+      <SafeAreaView style={styles.overview}>
         <ScrollView contentContainerStyle={{ paddingVertical: 25 }}>
             <Card row middle style={styles.margin}>
             <Block flex={1.2} center middle style={{ marginRight: 0 }}>
@@ -208,6 +209,7 @@ class Transaction extends Component {
           </Card>
         </ScrollView>
       </SafeAreaView>
+      </React.Fragment>
     )
   }
 }
