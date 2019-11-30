@@ -6,7 +6,8 @@
 ![Image of PrimeBankApp](https://res.cloudinary.com/dvfr0z8wr/image/upload/v1575145872/Screenshot_2019-11-30_at_4.04.16_PM.png)![Image of PrimeBankApp](https://res.cloudinary.com/dvfr0z8wr/image/upload/v1575145817/Screenshot_2019-11-30_at_4.03.45_PM.png)
 
 
-:arrow_forward: ## How To Run This App
+:arrow_forward:
+## How To Run This App
 
 1. Clone the Repository
 2. Cd into it
