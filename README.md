@@ -16,8 +16,8 @@
 2. Cd into it
 3. npm install
 
-For IOS
+## For IOS
 * run expo start --ios
 
-For Android
+## For Android
 * run expo start --android
